@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -97,6 +99,25 @@ public class dbHelper{
             
         }
 
+    }
+    
+    public static List getSubjects(){
+        ArrayList<String> subs = new ArrayList<String>();
+        Statement stmt = null;
+        
+        try{
+            stmt = c.createStatement();
+            String sql = "select sub from subject;";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                subs.add(rs.getString("sub"));
+            }
+        }catch(Exception e){
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        
+        return subs;
     }
     
     public static void addQuestion(Question ques){
