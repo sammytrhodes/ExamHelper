@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="140.0" prefWidth="345.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="examhelper.QuesOrFileController">
+   <children>
+      <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#questionInput" text="Input Question" />
+      <Button layoutX="222.0" layoutY="100.0" mnemonicParsing="false" onAction="#questionFile" pickOnBounds="false" prefHeight="27.0" prefWidth="109.0" text="Input File" />
+      <Label id="label" fx:id="label" layoutX="41.0" layoutY="34.0" prefHeight="36.0" prefWidth="264.0" text="Please Choose to Input a Single Question or Input a Question File" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
