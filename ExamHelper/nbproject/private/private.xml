@@ -5,9 +5,8 @@
         <group>
             <file>file:/Users/David/NetBeansProjects/ExamHelper/src/examhelper/QuesOrFileController.java</file>
             <file>file:/Users/David/NetBeansProjects/ExamHelper/src/examhelper/ScreensFramework.java</file>
-            <file>file:/Users/David/NetBeansProjects/ExamHelper/src/examhelper/ScreensController.java</file>
-            <file>file:/Users/David/NetBeansProjects/ExamHelper/src/examhelper/ExamOrQuesController.java</file>
-            <file>file:/Users/David/NetBeansProjects/ExamHelper/src/examhelper/dbHelper.java</file>
+            <file>file:/Users/David/NetBeansProjects/ExamHelper/src/examhelper/QuesInput.fxml</file>
+            <file>file:/Users/David/NetBeansProjects/ExamHelper/src/examhelper/QuesInputController.java</file>
         </group>
     </open-files>
 </project-private>

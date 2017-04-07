@@ -39,7 +39,6 @@ public class QuesOrFileController implements Initializable, Controller {
     @FXML
     private void back(ActionEvent e){
         myController.setScreen(ScreensFramework.screen1ID);
-
     }
     
     @Override
