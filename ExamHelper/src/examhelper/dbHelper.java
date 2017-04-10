@@ -172,6 +172,7 @@ public class dbHelper{
                 sql = "insert into question values (null, "+subID+", '"+question+"');";
                 //insert into table question values (null, 4, 'How does DFS work?');
                 stmt.executeUpdate(sql);
+                System.out.println(sql);
             }
             else{
                 System.out.println("Question already added");

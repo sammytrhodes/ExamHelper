@@ -7,13 +7,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="examhelper.QuesInputController">
+<AnchorPane id="AnchorPane" prefHeight="348.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="examhelper.QuesInputController">
    <children>
-      <Label layoutX="33.0" layoutY="37.0" text="Choose a subject, or enter a new subject:" wrapText="true">
+      <Label layoutX="70.0" layoutY="37.0" text="Choose a subject, or enter a new subject:" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox editable="true" layoutX="33.0" layoutY="60.0" prefHeight="27.0" prefWidth="404.0" fx:id="cb"/>
+      <ComboBox fx:id="cb" editable="true" layoutX="44.0" layoutY="60.0" prefHeight="27.0" prefWidth="404.0" />
+      <Label layoutX="132.0" layoutY="111.0" text="Enter Your Question Here..." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txt" layoutX="44.0" layoutY="134.0" prefHeight="145.0" prefWidth="404.0" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="206.0" layoutY="307.0" mnemonicParsing="false" onAction="#enterToDB" pickOnBounds="false" prefHeight="27.0" prefWidth="80.0" text="Done" />
    </children>
 </AnchorPane>
