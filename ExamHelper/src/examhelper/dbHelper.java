@@ -11,8 +11,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Random;
 /**
  *
  * @author David
@@ -49,6 +48,7 @@ public class dbHelper{
 	System.out.println("Opened database successfully");
     }
     
+    
     public static void createPopTables(){
         Statement stmt = null;
         
@@ -83,9 +83,8 @@ public class dbHelper{
         } catch (Exception e){ 
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
         }
-        
-        
     }
+    
     
     public static boolean valid(int numQues, String subject){
         Statement stmt = null;
@@ -107,6 +106,7 @@ public class dbHelper{
         return(numQues <= numQuesAvail);
     }
     
+    
     public static void deleteAll(){
         Statement stmt = null;
         
@@ -119,6 +119,37 @@ public class dbHelper{
             
         }
 
+    }
+    
+    public static ArrayList<String> getQuestions(int num, String subject){
+        // gets list of all questions
+        ArrayList<String>questions = new ArrayList<String>();
+        // list of "num" questions that will be returned
+        ArrayList<String>finalQues = new ArrayList<String>();
+        Statement stmt = null;
+        
+        try{
+            stmt = c.createStatement();
+            String sql = "select ques from (select * from question,subject where question.sid = subject.id) where sub = \""+subject+"\";";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                questions.add(rs.getString("ques"));
+            }
+        }catch(Exception e){
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        
+        // randomly choose "num" questions
+        Random rand = new Random();
+        int n;
+        for(int i = 0; i < num; i++){
+            n = rand.nextInt(questions.size());
+            finalQues.add(questions.get(n));
+            questions.remove(n);
+        }
+        
+        return finalQues;
     }
     
     public static ArrayList<String> getSubjects(){

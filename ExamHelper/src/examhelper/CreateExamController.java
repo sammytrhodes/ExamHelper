@@ -68,7 +68,7 @@ public class CreateExamController implements Initializable,Controller {
      * @return true if valid, false if not 
      */
     @FXML
-    private boolean generateExam(ActionEvent e){
+    private void generateExam(ActionEvent e){
         String subject = "";
         int numQues = 0;
         try{
@@ -86,9 +86,13 @@ public class CreateExamController implements Initializable,Controller {
         else{
             System.out.println("sub: "+subject+"\nques#: "+numQues);
             possible = db.valid(numQues, subject);
+            
+            if(possible){
+                //get list of questions with database function here
+                ArrayList<String> questions = db.getQuestions(numQues,subject);
+                System.out.println(questions.toString());
+            }
         }
-        
-        return possible;
     }
     
     
