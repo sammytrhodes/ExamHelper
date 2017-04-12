@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="348.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="examhelper.QuesInputController">
+   <children>
+      <Label layoutX="70.0" layoutY="37.0" text="Choose a subject, or enter a new subject:" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cb" editable="true" layoutX="44.0" layoutY="60.0" prefHeight="27.0" prefWidth="404.0" />
+      <Label layoutX="132.0" layoutY="112.0" text="Enter Your Question Here..." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txt" layoutX="44.0" layoutY="135.0" prefHeight="145.0" prefWidth="404.0" wrapText="true" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="206.0" layoutY="307.0" mnemonicParsing="false" onAction="#enterToDB" pickOnBounds="false" prefHeight="27.0" prefWidth="80.0" text="Done" />
+      <Label layoutX="103.0" layoutY="289.0" text="NOTE: single and double quotes will be removed for database entry" textAlignment="CENTER">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

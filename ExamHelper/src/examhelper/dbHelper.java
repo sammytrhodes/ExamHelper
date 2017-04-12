@@ -101,7 +101,7 @@ public class dbHelper{
 
     }
     
-    public static List getSubjects(){
+    public static ArrayList<String> getSubjects(){
         ArrayList<String> subs = new ArrayList<String>();
         Statement stmt = null;
         
@@ -172,6 +172,7 @@ public class dbHelper{
                 sql = "insert into question values (null, "+subID+", '"+question+"');";
                 //insert into table question values (null, 4, 'How does DFS work?');
                 stmt.executeUpdate(sql);
+                System.out.println(sql);
             }
             else{
                 System.out.println("Question already added");
@@ -186,15 +187,17 @@ public class dbHelper{
         System.out.println("Added question successfully");
     }
 
-    public static void main(String[] args) {
-        connectToDB();
+//    public static void main(String[] args) {
+//        connectToDB();
+////        createPopTables();
+//        Question q = new Question("Memes", "What is the meaning of life");
+//        addQuestion(q);
+////        deleteAll();
 //        createPopTables();
-        Question q = new Question("Memes", "What is the meaning of life");
-        addQuestion(q);
-//        deleteAll();
-        createPopTables();
-        
-        
-    }
+//        ArrayList list = getSubjects();
+//        System.out.println(list);
+//        
+//        
+//    }
     
 }

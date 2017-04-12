@@ -23,7 +23,7 @@ public class ExamOrQuesController implements Initializable,Controller {
     
     @FXML
     private void createExam(ActionEvent event) {
-        //go to create exam screen
+        myController.setScreen(ScreensFramework.screen4ID);
     }
     
     @FXML
