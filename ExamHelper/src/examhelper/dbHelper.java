@@ -87,6 +87,26 @@ public class dbHelper{
         
     }
     
+    public static boolean valid(int numQues, String subject){
+        Statement stmt = null;
+        int numQuesAvail = 0;
+        
+        try{
+            stmt = c.createStatement();
+            String sql = "select count(*) from (select * from subject,question where subject.id = question.sid) where sub = \""+subject+"\";";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                numQuesAvail = rs.getInt("count(*)");
+            }
+        }catch(Exception e){
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        
+        System.out.println("questions request: "+numQues+"\nquestions available: "+numQuesAvail);
+        return(numQues <= numQuesAvail);
+    }
+    
     public static void deleteAll(){
         Statement stmt = null;
         

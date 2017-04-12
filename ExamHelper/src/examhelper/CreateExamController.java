@@ -57,6 +57,11 @@ public class CreateExamController implements Initializable,Controller {
         myController.setScreen(ScreensFramework.screen1ID);
     }
     
+    /***
+     * generates an exam.txt
+     * checks to make sure number of questions requested possible for given sub
+     * @param e 
+     */
     @FXML
     private void generateExam(ActionEvent e){
         String subject = "";
@@ -75,10 +80,18 @@ public class CreateExamController implements Initializable,Controller {
         }
         else{
             System.out.println("sub: "+subject+"\nques#: "+numQues);
+            boolean possible = db.valid(numQues, subject);
+            if(possible){
+                //do nothing
+                System.out.println("valid");
+            }
+            else{
+                //create valid 
+                System.out.println("invalid");
+            }
         }
     }
     
-//    private void createExam(numQues)
     
     @Override
     public void setScreenParent(ScreensController screenPage) {
