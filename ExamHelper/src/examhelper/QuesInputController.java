@@ -42,7 +42,7 @@ public class QuesInputController implements Initializable, Controller {
     
     @FXML
     private void back(ActionEvent e){
-        myController.setScreen(ScreensFramework.screen1ID);
+        myController.setScreen(ScreensFramework.screen2ID);
     }
     
     @FXML
