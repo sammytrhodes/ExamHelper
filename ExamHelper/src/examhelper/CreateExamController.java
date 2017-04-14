@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import org.apache.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -24,6 +25,7 @@ public class CreateExamController implements Initializable,Controller {
     dbHelper db;
     ScreensController myController;
     boolean possible;
+    Logger logger = Logger.getLogger(ScreensFramework.class);
     
     
     @FXML
@@ -32,8 +34,8 @@ public class CreateExamController implements Initializable,Controller {
     
     private void populateCombo(ArrayList<String> subs){
         cb.getItems().addAll(subs);
-        System.out.println("should have added");
-    
+        System.out.println("should have");
+        logger.info("should have added subjects to combo box");
     }
     
   

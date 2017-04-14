@@ -14,8 +14,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+
 
 /**
  * FXML Controller class
@@ -37,7 +37,6 @@ public class QuesInputController implements Initializable, Controller {
         ArrayList<String> list = db.getSubjects();
         
         cb.getItems().addAll(list);
-        System.out.println("should have added");
     }
     
     @FXML
@@ -73,7 +72,6 @@ public class QuesInputController implements Initializable, Controller {
     public void initialize(URL url, ResourceBundle rb) {
         db = new dbHelper();
         db.connectToDB();
-        db.createPopTables();
         ArrayList<String> list = db.getSubjects();
         populateCombo();
 

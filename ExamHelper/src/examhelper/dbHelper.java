@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author David
@@ -33,7 +35,7 @@ public class dbHelper{
     public static String subTable = "Subject";
     public static String quesTable = "Question";
     public static String dbName = "ExamHelperDB";
-    
+    public static Logger logger = Logger.getLogger(ScreensFramework.class);
     
     public static void connectToDB(){
         
@@ -45,7 +47,9 @@ public class dbHelper{
 	    System.err.println(e.getClass().getName() + ": " + e.getMessage());
 	    System.exit(0);
 	}
-	System.out.println("Opened database successfully");
+        
+        logger.info("Opened database successfully");
+        
     }
     
     
@@ -81,7 +85,8 @@ public class dbHelper{
             addQuestion(q9);
             
         } catch (Exception e){ 
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
         }
     }
     
@@ -98,11 +103,11 @@ public class dbHelper{
                 numQuesAvail = rs.getInt("count(*)");
             }
         }catch(Exception e){
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
         
-        System.out.println("questions request: "+numQues+"\nquestions available: "+numQuesAvail);
+        logger.info("questions request: "+numQues+"\nquestions available: "+numQuesAvail);
         return(numQues <= numQuesAvail);
     }
     
@@ -116,7 +121,8 @@ public class dbHelper{
                     "drop table subject;\n";
             stmt.executeUpdate(sql);
         } catch (Exception e){
-            
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
         }
 
     }
@@ -136,7 +142,7 @@ public class dbHelper{
                 questions.add(rs.getString("ques"));
             }
         }catch(Exception e){
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
         
@@ -164,7 +170,7 @@ public class dbHelper{
                 subs.add(rs.getString("sub"));
             }
         }catch(Exception e){
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
         
@@ -226,16 +232,16 @@ public class dbHelper{
                 System.out.println(sql);
             }
             else{
-                System.out.println("Question already added");
+                logger.info("Question already added");
             }
                 
    
             
         } catch (Exception e){ 
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
-        System.out.println("Added question successfully");
+        logger.info("Question added successfully");
     }
 
 //    public static void main(String[] args) {

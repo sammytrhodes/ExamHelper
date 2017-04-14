@@ -8,6 +8,8 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  *
@@ -57,6 +59,9 @@ public class ScreensFramework extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Logger logger = Logger.getLogger(ScreensFramework.class);
+        BasicConfigurator.configure();
         launch(args);
+        
     }
 }
