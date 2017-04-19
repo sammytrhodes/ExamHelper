@@ -17,6 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import org.apache.log4j.Logger;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * FXML Controller class
@@ -94,18 +96,29 @@ public class CreateExamController implements Initializable,Controller {
                 //get list of questions with database function here
                 ArrayList<String> questions = db.getQuestions(numQues,subject);
                 try{
-                    File file = new File("Exam.txt");
+                    
+                    //get the date for the file name
+                    //could include time to distinguish multiple exams created in a single day
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd");
+                    LocalDate date = LocalDate.now();
+                    String today = dtf.format(date);
+                    
+                    
+                    //create the file
+                    File file = new File(today+"-"+subject+"-exam.txt");
                     file.createNewFile();
                     FileWriter fw = new FileWriter(file);
                     BufferedWriter writer = new BufferedWriter(fw);
                     
-                    
+               
+                    //formatting
                     writer.write("Exam Topic: ");
                     writer.write(subject);
                     writer.write("\n\n");
                     writer.write("\nNAME____________________");
                     writer.write("DATE____________________");
                     writer.write("\n\n");
+                    //write the questions
                     for(int i = 0;i < questions.size(); i++){
                         writer.write(String.valueOf(i+1));
                         writer.write(") ");
@@ -114,6 +127,8 @@ public class CreateExamController implements Initializable,Controller {
                     }    
                     writer.flush();
                     writer.close();
+                    //should open the file in default editor
+                    java.awt.Desktop.getDesktop().edit(file);
                     
                
                     
@@ -122,6 +137,7 @@ public class CreateExamController implements Initializable,Controller {
                 }
                 catch (Exception es) {
                     logger.error("Couldn't Create Exam");
+                    logger.error(es.getMessage());
                 }    
             }
         }
