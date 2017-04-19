@@ -5,6 +5,9 @@
  */
 package examhelper;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -34,7 +37,6 @@ public class CreateExamController implements Initializable,Controller {
     
     private void populateCombo(ArrayList<String> subs){
         cb.getItems().addAll(subs);
-        System.out.println("should have");
         logger.info("should have added subjects to combo box");
     }
     
@@ -51,7 +53,6 @@ public class CreateExamController implements Initializable,Controller {
         db.createPopTables();
         ArrayList<String> subs = db.getSubjects();
         populateCombo(subs);
-        System.out.println("here2"); 
     }
     
     
@@ -92,7 +93,36 @@ public class CreateExamController implements Initializable,Controller {
             if(possible){
                 //get list of questions with database function here
                 ArrayList<String> questions = db.getQuestions(numQues,subject);
-                System.out.println(questions.toString());
+                try{
+                    File file = new File("Exam.txt");
+                    file.createNewFile();
+                    FileWriter fw = new FileWriter(file);
+                    BufferedWriter writer = new BufferedWriter(fw);
+                    
+                    
+                    writer.write("Exam Topic: ");
+                    writer.write(subject);
+                    writer.write("\n\n");
+                    writer.write("\nNAME____________________");
+                    writer.write("DATE____________________");
+                    writer.write("\n\n");
+                    for(int i = 0;i < questions.size(); i++){
+                        writer.write(String.valueOf(i+1));
+                        writer.write(") ");
+                        writer.write(questions.get(i));
+                        writer.write("\n");
+                    }    
+                    writer.flush();
+                    writer.close();
+                    
+               
+                    
+                    
+                        
+                }
+                catch (Exception es) {
+                    logger.error("Couldn't Create Exam");
+                }    
             }
         }
     }

@@ -73,10 +73,7 @@ public class QuesInputController implements Initializable, Controller {
         db = new dbHelper();
         db.connectToDB();
         ArrayList<String> list = db.getSubjects();
-        populateCombo();
-
-        System.out.println("here2");
-        
+        populateCombo();        
     }    
     
     @Override
