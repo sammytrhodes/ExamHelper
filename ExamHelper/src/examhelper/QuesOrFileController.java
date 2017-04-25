@@ -33,7 +33,7 @@ public class QuesOrFileController implements Initializable, Controller {
     
     @FXML
     private void questionFile(ActionEvent event){
-        
+        myController.setScreen(ScreensFramework.screen5ID);
     }
     
     @FXML

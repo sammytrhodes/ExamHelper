@@ -12,7 +12,7 @@
    <children>
       <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#questionInput" text="Input Question" />
       <Button layoutX="222.0" layoutY="100.0" mnemonicParsing="false" onAction="#questionFile" pickOnBounds="false" prefHeight="27.0" prefWidth="109.0" text="Input File" />
-      <Label id="label" fx:id="label" layoutX="41.0" layoutY="34.0" prefHeight="36.0" prefWidth="264.0" text="Please Choose to Input a Single Question or Input a Question File" textAlignment="CENTER" wrapText="true">
+      <Label id="label" fx:id="label" layoutX="41.0" layoutY="49.0" prefHeight="36.0" prefWidth="264.0" text="Please Choose to Input a Single Question or Input a Question File" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="14.0" />
          </font></Label>

@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="140.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="examhelper.ExamOrQuesController">
+<AnchorPane id="AnchorPane" prefHeight="126.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="examhelper.ExamOrQuesController">
    <children>
       <Button layoutX="14.0" layoutY="87.0" mnemonicParsing="false" onAction="#createExam" text="Create Exam" />
       <Button layoutX="197.0" layoutY="87.0" mnemonicParsing="false" onAction="#inputQuestion" text="Input Question" />
