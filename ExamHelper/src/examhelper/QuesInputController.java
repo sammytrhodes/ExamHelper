@@ -71,7 +71,6 @@ public class QuesInputController implements Initializable, Controller {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         db = new dbHelper();
-        db.connectToDB();
         ArrayList<String> list = db.getSubjects();
         populateCombo();        
     }    

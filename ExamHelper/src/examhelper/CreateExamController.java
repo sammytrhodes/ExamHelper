@@ -5,6 +5,8 @@
  */
 package examhelper;
 
+import java.awt.Button;
+import java.awt.Label;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -36,6 +38,10 @@ public class CreateExamController implements Initializable,Controller {
     @FXML
     public ChoiceBox<String> cb;
     public TextField quesNums;
+
+    
+    
+    
     
     private void populateCombo(ArrayList<String> subs){
         cb.getItems().addAll(subs);
@@ -51,8 +57,6 @@ public class CreateExamController implements Initializable,Controller {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         db = new dbHelper();
-        db.connectToDB();
-        db.createPopTables();
         ArrayList<String> subs = db.getSubjects();
         populateCombo(subs);
     }
@@ -78,18 +82,21 @@ public class CreateExamController implements Initializable,Controller {
         int numQues = 0;
         try{
             subject = cb.getValue().toString();
-            numQues = Integer.parseInt(quesNums.getText());
+            numQues = Integer.parseInt(quesNums.getText().replace(" ",""));
         }
         catch(Exception ex){
             //didn't enter a number at all
-            System.out.println("please enter a valid integer number and choose a subject");
+            logger.error("please enter a valid integer number and choose a subject");
         }
         
         if(numQues <= 0){
-            System.out.println("not a valid number");
+            logger.error("not a valid number");
+            //invalid user entry
+            myController.setScreen(ScreensFramework.screen6ID);
+
         }
         else{
-            System.out.println("sub: "+subject+"\nques#: "+numQues);
+            logger.info("sub: "+subject+"\nques#: "+numQues);
             possible = db.valid(numQues, subject);
             
             if(possible){
@@ -137,9 +144,15 @@ public class CreateExamController implements Initializable,Controller {
                 }
                 catch (Exception es) {
                     logger.error("Couldn't Create Exam");
-                    logger.error(es.getMessage());
+                    logger.error(es.getMessage()); 
                 }    
+            }else{
+                //not possible
+                //number greater than number of questions for subject
+                myController.setScreen(ScreensFramework.screen6ID);
+
             }
+           
         }
     }
     

@@ -37,6 +37,10 @@ public class dbHelper{
     public static String dbName = "ExamHelperDB";
     public static Logger logger = Logger.getLogger(ScreensFramework.class);
     
+    dbHelper(){
+        connectToDB();
+    }
+    
     public static void connectToDB(){
         
         c = null;
@@ -44,7 +48,7 @@ public class dbHelper{
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:" + dbName);
 	} catch (Exception e) {
-	    System.err.println(e.getClass().getName() + ": " + e.getMessage());
+	    logger.error(e.getClass().getName() + ": " + e.getMessage());
 	    System.exit(0);
 	}
         
