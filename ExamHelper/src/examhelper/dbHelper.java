@@ -11,7 +11,8 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -34,20 +35,29 @@ public class dbHelper{
     public static String subTable = "Subject";
     public static String quesTable = "Question";
     public static String dbName = "ExamHelperDB";
+    public static Logger logger = Logger.getLogger(ScreensFramework.class);
     
+    dbHelper(){
+        connectToDB();
+        createPopTables();
+    }
     
-    public static void connectToDB(){
+    public static boolean connectToDB(){
         
         c = null;
         try{
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:" + dbName);
 	} catch (Exception e) {
-	    System.err.println(e.getClass().getName() + ": " + e.getMessage());
-	    System.exit(0);
+	    logger.error(e.getClass().getName() + ": " + e.getMessage());
+            return false;
 	}
-	System.out.println("Opened database successfully");
+        
+        logger.info("Opened database successfully");
+        return true;
+        
     }
+    
     
     public static void createPopTables(){
         Statement stmt = null;
@@ -69,6 +79,17 @@ public class dbHelper{
             Question q7 = new Question("Intro to Comp Sci","Write the pseudocode for an addition calculator function that takes two parameters (number A and number B)");
             Question q8 = new Question("Intro to Comp Sci","What is a stack trace and why is it important?");
             Question q9 = new Question("Math","How many flip flops does toby wear?");
+            Question q10 = new Question("Rob Lowe", "How many Lowes could Rob Lowe rob if Rob Lowe could rob Lowes?");
+            Question q11 = new Question("Math", "How many apostrophies would you like in your salad?");
+            Question q12 = new Question("John The Legend Barr", "What is John Barrs favorite soft drink?");
+            Question q13 = new Question("John The Legend Barr", "What branch of the military was John Barr in?");
+            Question q14 = new Question("John The Legend Barr", "John Barr was once challeneged to a pull up competetion by a fellow student\n. John barr proceeded to kick the students ass... how many pull ups did John Barr do?");
+            Question q15 = new Question("John The Legend Barr", "John Barr competes in a special race once a year. What is that race?");
+            Question q16 = new Question("John The Legend Barr", "John Barr is so amazing that he even has a form of alcohol named after him. What type of alcoholic beverage is named after him?");
+            Question q17 = new Question("Backpacks", "who is the best backpack of them all?");
+            Question q18 = new Question("Rob Lowe", "What amazing show was Rob Lowe on? (hint: its totally Parks and Rec");
+            Question q19 = new Question("Algorithms", "Why is it that Ali wants you to learn LaTeX when no one else uses it?");
+            Question q20 = new Question("Data Structures", "how much data can you fit into a strucutre?");
             
             addQuestion(q1);
             addQuestion(q2);
@@ -79,29 +100,94 @@ public class dbHelper{
             addQuestion(q7);
             addQuestion(q8);
             addQuestion(q9);
+            addQuestion(q10);
+            addQuestion(q11);
+            addQuestion(q12);
+            addQuestion(q13);
+            addQuestion(q14);
+            addQuestion(q15);
+            addQuestion(q16);
+            addQuestion(q17);
+            addQuestion(q18);
+            addQuestion(q19);
+            addQuestion(q20);
+            
             
         } catch (Exception e){ 
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
+    }
+    
+    
+    public static boolean valid(int numQues, String subject){
+        Statement stmt = null;
+        int numQuesAvail = 0;
+        
+        try{
+            stmt = c.createStatement();
+            String sql = "select count(*) from (select * from subject,question where subject.id = question.sid) where sub = \""+subject+"\";";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                numQuesAvail = rs.getInt("count(*)");
+            }
+        }catch(Exception e){
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
         }
         
-        
+        logger.info("questions request: "+numQues+"\nquestions available: "+numQuesAvail);
+        return(numQues <= numQuesAvail);
     }
+    
     
     public static void deleteAll(){
         Statement stmt = null;
         
         try{
             stmt = c.createStatement();
-            String sql = "drop table question;\n" +
-                    "drop table subject;\n";
+            String sql = "delete from question;\n" +
+                    "delete from subject;\n";
             stmt.executeUpdate(sql);
         } catch (Exception e){
-            
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
         }
 
     }
     
-    public static List getSubjects(){
+    public static ArrayList<String> getQuestions(int num, String subject){
+        // gets list of all questions
+        ArrayList<String>questions = new ArrayList<String>();
+        // list of "num" questions that will be returned
+        ArrayList<String>finalQues = new ArrayList<String>();
+        Statement stmt = null;
+        
+        try{
+            stmt = c.createStatement();
+            String sql = "select ques from (select * from question,subject where question.sid = subject.id) where sub = \""+subject+"\";";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                questions.add(rs.getString("ques"));
+            }
+        }catch(Exception e){
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
+        
+        // randomly choose "num" questions
+        Random rand = new Random();
+        int n;
+        for(int i = 0; i < num; i++){
+            n = rand.nextInt(questions.size());
+            finalQues.add(questions.get(n));
+            questions.remove(n);
+        }
+        
+        return finalQues;
+    }
+    
+    public static ArrayList<String> getSubjects(){
         ArrayList<String> subs = new ArrayList<String>();
         Statement stmt = null;
         
@@ -113,7 +199,7 @@ public class dbHelper{
                 subs.add(rs.getString("sub"));
             }
         }catch(Exception e){
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
         
@@ -174,27 +260,29 @@ public class dbHelper{
                 stmt.executeUpdate(sql);
             }
             else{
-                System.out.println("Question already added");
+                logger.info("Question already added");
             }
                 
    
             
         } catch (Exception e){ 
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            logger.fatal(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
-        System.out.println("Added question successfully");
+        logger.info("Question added successfully");
     }
 
-    public static void main(String[] args) {
-        connectToDB();
+//    public static void main(String[] args) {
+//        connectToDB();
+////        createPopTables();
+//        Question q = new Question("Memes", "What is the meaning of life");
+//        addQuestion(q);
+////        deleteAll();
 //        createPopTables();
-        Question q = new Question("Memes", "What is the meaning of life");
-        addQuestion(q);
-//        deleteAll();
-        createPopTables();
-        
-        
-    }
+//        ArrayList list = getSubjects();
+//        System.out.println(list);
+//        
+//        
+//    }
     
 }

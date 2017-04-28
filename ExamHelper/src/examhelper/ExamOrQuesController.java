@@ -10,8 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
+
 
 /**
  *
@@ -23,7 +22,7 @@ public class ExamOrQuesController implements Initializable,Controller {
     
     @FXML
     private void createExam(ActionEvent event) {
-        //go to create exam screen
+        myController.setScreen(ScreensFramework.screen4ID);
     }
     
     @FXML

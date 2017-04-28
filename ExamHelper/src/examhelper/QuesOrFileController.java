@@ -28,12 +28,17 @@ public class QuesOrFileController implements Initializable, Controller {
     
     @FXML
     private void questionInput(ActionEvent event){
-        
+        myController.setScreen(ScreensFramework.screen3ID);
     }
     
     @FXML
     private void questionFile(ActionEvent event){
-        
+        myController.setScreen(ScreensFramework.screen5ID);
+    }
+    
+    @FXML
+    private void back(ActionEvent e){
+        myController.setScreen(ScreensFramework.screen1ID);
     }
     
     @Override
@@ -45,5 +50,7 @@ public class QuesOrFileController implements Initializable, Controller {
     public void setScreenParent(ScreensController screenPage) {
         myController = screenPage;
     }
+    
+    
     
 }
