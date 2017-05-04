@@ -63,25 +63,10 @@ public class dbHelperTest {
     @Test
     public void testValid() {
         dbHelper db = new dbHelper();
-        db.deleteAll();
         db.createPopTables();
+        db.deleteAll();
         
-        Statement stmt = null;
-        //will hold all questions but there shouldn't be any
-        ArrayList<String> questions = new ArrayList<String>();
-        try{
-            stmt = db.c.createStatement();
-            String sql = "select * from question;";
-            ResultSet rs = stmt.executeQuery(sql);
-            while(rs.next()){
-                questions.add(rs.getString("ques"));
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        
-        //should be 20 because thats how many questions are inserted for 
-        Assert.assertEquals(20, questions.size());
+        Assert.assertFalse(db.valid(3, "Rob Lowe"));
     }
 
     
@@ -99,7 +84,8 @@ public class dbHelperTest {
         ArrayList<String> questions = new ArrayList<String>();
         try{
             stmt = db.c.createStatement();
-            String sql = "select * from question;";
+            String sql = "select * from (select * from question,subject where "
+                    + "question.sid = subject.id) where sub = \"John The Legend Barr\";";
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()){
                 questions.add(rs.getString("ques"));

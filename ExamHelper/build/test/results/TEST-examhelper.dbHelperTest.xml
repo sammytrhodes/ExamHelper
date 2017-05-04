@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="macBookPro" name="examhelper.dbHelperTest" skipped="0" tests="7" time="1.216" timestamp="2017-04-28T22:05:53">
+<testsuite errors="0" failures="0" hostname="macBookPro" name="examhelper.dbHelperTest" skipped="0" tests="7" time="0.718" timestamp="2017-05-04T13:44:26">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javafx.binarycss" value="false" />
@@ -47,7 +47,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="ant.file.Take2" value="/Users/David/NetBeansProjects/ExamHelper/build.xml" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner examhelper.dbHelperTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/David/NetBeansProjects/ExamHelper/build/test/results/TEST-examhelper.dbHelperTest.xml crashfile=/Users/David/NetBeansProjects/ExamHelper/build/junitvmwatcher8803610562761402696.properties propsfile=/Users/David/NetBeansProjects/ExamHelper/build/junit3569747452012660253.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner examhelper.dbHelperTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/David/NetBeansProjects/ExamHelper/build/test/results/TEST-examhelper.dbHelperTest.xml crashfile=/Users/David/NetBeansProjects/ExamHelper/build/junitvmwatcher6717016632537637987.properties propsfile=/Users/David/NetBeansProjects/ExamHelper/build/junit2473913054786464138.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -86,7 +86,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="/" />
-    <property name="javac.includesfile.binary" value="/Users/David/NetBeansProjects/ExamHelper/null1784420518" />
+    <property name="javac.includesfile.binary" value="/Users/David/NetBeansProjects/ExamHelper/null20768061" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/plugin.jar:sqlite-jdbc-3.14.2.1.jar:../../Downloads/apache-log4j-1.2.17/log4j-1.2.17.jar:build/classes:/Applications/NetBeans/NetBeans 8.2.app/Contents/Resources/NetBeans/platform/modules/ext/junit-4.12.jar:/Applications/NetBeans/NetBeans 8.2.app/Contents/Resources/NetBeans/platform/modules/ext/hamcrest-core-1.3.jar" />
@@ -351,13 +351,13 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
-  <testcase classname="examhelper.dbHelperTest" name="testValid" time="0.52" />
-  <testcase classname="examhelper.dbHelperTest" name="testGetQuestions" time="0.067" />
-  <testcase classname="examhelper.dbHelperTest" name="testGetSubjects" time="0.109" />
-  <testcase classname="examhelper.dbHelperTest" name="testDeleteAll" time="0.028" />
-  <testcase classname="examhelper.dbHelperTest" name="testConnectToDB" time="0.064" />
-  <testcase classname="examhelper.dbHelperTest" name="testCreatePopTables" time="0.086" />
-  <testcase classname="examhelper.dbHelperTest" name="testAddQuestion" time="0.133" />
+  <testcase classname="examhelper.dbHelperTest" name="testValid" time="0.238" />
+  <testcase classname="examhelper.dbHelperTest" name="testGetQuestions" time="0.092" />
+  <testcase classname="examhelper.dbHelperTest" name="testGetSubjects" time="0.067" />
+  <testcase classname="examhelper.dbHelperTest" name="testDeleteAll" time="0.018" />
+  <testcase classname="examhelper.dbHelperTest" name="testConnectToDB" time="0.057" />
+  <testcase classname="examhelper.dbHelperTest" name="testCreatePopTables" time="0.074" />
+  <testcase classname="examhelper.dbHelperTest" name="testAddQuestion" time="0.086" />
   <system-out><![CDATA[connectToDB
 [SQLITE_ERROR] SQL error or missing database (no such column: question)
 ]]></system-out>

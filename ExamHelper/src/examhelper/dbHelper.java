@@ -147,13 +147,14 @@ public class dbHelper{
         try{
             stmt = c.createStatement();
             String sql = "delete from question;\n" +
-                    "delete from subject;\n";
+                    "delete from subject;\n" +
+                    "delete from sqlite_sequence where name='question';\n" +
+                    "delete from sqlite_sequence where name='subject';";
             stmt.executeUpdate(sql);
         } catch (Exception e){
             logger.fatal(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
-
     }
     
     public static ArrayList<String> getQuestions(int num, String subject){
