@@ -1,0 +1,15 @@
+
+TEST EXAMorQUES SCREEN
+01) Run the ExamHelper project
+02) Confirm that a window opens with text, “Please Choose to Create an Exam or Input 
+    a Question,” and buttons corresponding to these two choices.
+03) Click button labeled “Input Question.”
+04) Confirm that a new window opens with  text “Please Choose to Input a Single Question 
+    or Input a Question File,” two buttons corresponding to these choices, and a 
+    “Back button in the top left.
+05) Click the “Back” button and confirm that the original window opens again.
+06) Click button labeled “Create Exam.”
+07) Confirm that a new window opens with a “Back” button in the top left, a text box 
+    labeled “Number of Questions, a drop down menu labeled “Choose a Subject for the 
+    Exam.”
+08) Click the “Back” button and confirm that the original window opens again.
