@@ -79,7 +79,8 @@ public class CreateExamController implements Initializable,Controller {
      * generates an exam.txt
      * checks to make sure number of questions requested possible for given sub
      * @param e
-     * @return true if valid, false if not 
+     * @return true if valid, false if not '
+     * @exception if a valid number wasn't entered or a subject wasn't chosen
      */
     @FXML
     private void generateExam(ActionEvent e){

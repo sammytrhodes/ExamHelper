@@ -41,6 +41,10 @@ public class InvalidExamController implements Initializable, Controller {
     } 
     
     
+    /**
+     * goes to the previous screen
+     * @param e clicking the button
+     */
     @FXML
     private void back(ActionEvent e){
         myController.setScreen(ScreensFramework.screen4ID);

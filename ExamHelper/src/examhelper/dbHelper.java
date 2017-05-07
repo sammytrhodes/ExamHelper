@@ -122,6 +122,7 @@ public class dbHelper{
      * creates and populates tables for sqlite dB
      * can be called multiple times without adding duplicate questions or
      * creating duplicate tables
+     * @pre should always be called when empty database is created
      * @post should always have tables afterwards
      */
     public static void createPopTables(){
