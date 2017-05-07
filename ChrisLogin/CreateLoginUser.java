@@ -20,18 +20,18 @@ public class CreateLoginUser {
     private Component controllingFrame;
     
 public void actionPerformed(ActionEvent e) {
-    String cmd = e.getActionCommand();
-
-    if (OK.equals(cmd)) { //Process the password.
-        char[] input = passwordField.getPassword();
+         
+    String cmd = e.toString();
+    
+    if (e.equals(cmd)) {  char[] input = null; //Process the password.        char[] input = passwordField.getPassword();
         if (isPasswordCorrect(input)) {
             JOptionPane.showMessageDialog(controllingFrame,
-                "Success! You typed the right password.");
+                    "Invalid password. Try again.",
+                    "Error Message",
+                    JOptionPane.ERROR_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(controllingFrame,
-                "Invalid password. Try again.",
-                "Error Message",
-                JOptionPane.ERROR_MESSAGE);
+                    "Success! You typed the right password.");
         }
 
         //Zero out the possible password, for security.
