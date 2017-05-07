@@ -22,30 +22,49 @@ public class QuesOrFileController implements Initializable, Controller {
     
     ScreensController myController;
 
-    /**
-     * Initializes the controller class.
-     */
     
+    
+    /**
+     * goes to the add question screen
+     * @param event clicking the button
+     */
     @FXML
     private void questionInput(ActionEvent event){
         myController.setScreen(ScreensFramework.screen3ID);
     }
     
+    /**
+     * goes to the input file screen
+     * @param event clicking the button
+     */
     @FXML
     private void questionFile(ActionEvent event){
         myController.setScreen(ScreensFramework.screen5ID);
     }
     
+    /**
+     * goes to the previous screen
+     * @param e clicking the back button
+     */
     @FXML
     private void back(ActionEvent e){
         myController.setScreen(ScreensFramework.screen1ID);
     }
     
+    /**
+     * initializes the screen
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
+    /**
+     * 
+     * @param screenPage sets the controller to change the screens
+     */
     @Override
     public void setScreenParent(ScreensController screenPage) {
         myController = screenPage;

@@ -81,7 +81,7 @@ public class QuesListController implements Initializable, Controller {
     
     /***
      * 
-     * @param screenPage screen turn to
+     * @param screenPage sets the controller to change the screens
      */
     @Override
     public void setScreenParent(ScreensController screenPage) {

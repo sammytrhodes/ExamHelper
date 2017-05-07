@@ -25,11 +25,21 @@ class Question{
     String question;
     String subject;
     
+    /**
+     * Question for Constructor.
+     * @param sub subject 
+     * @param ques question
+     */
     Question(String sub, String ques){
         subject = sub;
         question = ques;
     }
     
+    
+    /**
+     * to string method
+     * @return String to be printed
+     */
     public String toString(){
         return("Sub: "+subject+"\nQues: "+question);
     }
@@ -354,18 +364,20 @@ public class dbHelper{
         logger.info("Question added successfully");
     }
 
-    public static void main(String[] args) {
-        connectToDB();
+    
+    
+//    public static void main(String[] args) {
+//        connectToDB();
+////        createPopTables();
+//        Question q = new Question("Memes", "What is the meaning of life");
+//        addQuestion(q);
+////        deleteAll();
 //        createPopTables();
-        Question q = new Question("Memes", "What is the meaning of life");
-        addQuestion(q);
-//        deleteAll();
-        createPopTables();
-        ArrayList list = getSubjects();
-        Map m = getAllQuestions();
-        System.out.println(list);
-        
-        
-    }
+//        ArrayList list = getSubjects();
+//        Map m = getAllQuestions();
+//        System.out.println(list);
+//        
+//        
+//    }
     
 }

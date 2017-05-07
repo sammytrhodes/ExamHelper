@@ -34,11 +34,18 @@ public class ScreensFramework extends Application {
     public static String screen7File = "QuesList.fxml";
     
     
+    /***
+     * allows for screen to resize when opening new screen
+     */
     public static void resizeScreen(){
 	primaryStage.sizeToScene();
 	primaryStage.centerOnScreen();
     }
     
+    /***
+     * loads in the screens and fxml files when the program starts
+     * @param primaryStage stage it starts on
+     */
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;

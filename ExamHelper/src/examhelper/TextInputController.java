@@ -51,7 +51,10 @@ public class TextInputController implements Initializable, Controller {
         myController.setScreen(ScreensFramework.screen2ID);
     }
     
-    
+    /***
+     * adds the question to the database
+     * @param e clicking the button
+     */
     @FXML
     private void addQuestions(ActionEvent e){
         if(questions.size() == 0){
@@ -143,7 +146,7 @@ public class TextInputController implements Initializable, Controller {
     
     /***
      * allows for screen change
-     * @param screenPage 
+     * @param screenPage sets the controller to change the screens
      */
     @Override
     public void setScreenParent(ScreensController screenPage){

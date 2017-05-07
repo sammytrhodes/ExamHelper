@@ -31,7 +31,10 @@ public class InvalidExamController implements Initializable, Controller {
         // TODO
     }    
     
-    
+    /**
+     * sets the controller to change the screens
+     * @param screenPage 
+     */
     @Override
     public void setScreenParent(ScreensController screenPage) {
         myController = screenPage;

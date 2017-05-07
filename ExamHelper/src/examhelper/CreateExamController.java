@@ -23,7 +23,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * FXML Controller class
  *
- * @author liambarry
+ * @author liambarry and David
  */
 public class CreateExamController implements Initializable,Controller {
     
@@ -135,7 +135,7 @@ public class CreateExamController implements Initializable,Controller {
                         writer.write(String.valueOf(i+1));
                         writer.write(") ");
                         writer.write(questions.get(i));
-                        writer.write("\n");
+                        writer.write("\n\n\n\n");
                     }    
                     writer.flush();
                     writer.close();
@@ -159,7 +159,7 @@ public class CreateExamController implements Initializable,Controller {
     
     /***
      * 
-     * @param screenPage screen turn to new screen
+     * @param screenPage sets the controller to change the screens
      */
     @Override
     public void setScreenParent(ScreensController screenPage) {

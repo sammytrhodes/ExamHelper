@@ -32,18 +32,28 @@ public class QuesInputController implements Initializable, Controller {
     public ComboBox<String> cb;
     public TextArea txt = new TextArea();
     
-    
+    /***
+     * populates the combo box with all the existing subjects in the database
+     */
     private void populateCombo(){
         ArrayList<String> list = db.getSubjects();
         
         cb.getItems().addAll(list);
     }
     
+    /**
+     * returns to the previous screen
+     * @param e clicking the back button
+     */
     @FXML
     private void back(ActionEvent e){
         myController.setScreen(ScreensFramework.screen2ID);
     }
     
+    /**
+     * adds the inputted question to the database 
+     * @param e clicking the done button
+     */
     @FXML
     private void enterToDB(ActionEvent e){
         // get rid of all the quotes in the question
@@ -75,6 +85,10 @@ public class QuesInputController implements Initializable, Controller {
         populateCombo();        
     }    
     
+    /**
+     * 
+     * @param screenPage sets the controller to change the screens 
+     */
     @Override
     public void setScreenParent(ScreensController screenPage){
         myController = screenPage;

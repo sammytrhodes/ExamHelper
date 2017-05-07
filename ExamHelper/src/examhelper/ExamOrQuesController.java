@@ -20,26 +20,47 @@ public class ExamOrQuesController implements Initializable,Controller {
 
     ScreensController myController;
     
+    /**
+     * goes to the create exam screen
+     * @param event clicking the button
+     */
     @FXML
     private void createExam(ActionEvent event) {
         myController.setScreen(ScreensFramework.screen4ID);
     }
     
+    /**
+     * goes to the question or text file screen
+     * @param event clicking the button
+     */
     @FXML
     private void inputQuestion(ActionEvent event){
         myController.setScreen(ScreensFramework.screen2ID);
     }
     
+    /**
+     * goes to the listview of questions screen
+     * @param e clicking the button
+     */
     @FXML
     private void goToQuestions(ActionEvent e){
         myController.setScreen(ScreensFramework.screen7ID);
     }
     
+    /**
+     * initializes the screen
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+    
+    /**
+     * sets the controller to change the screens
+     * @param screenPage 
+     */
     @Override
     public void setScreenParent(ScreensController screenPage) {
         myController = screenPage;
