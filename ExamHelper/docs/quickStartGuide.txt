@@ -1,0 +1,9 @@
+Hello. 
+To start our program, you must first install java 8. 
+Once Java 8 is installed, all you need to do is run the jar file.
+Inside the root folder "ExamHelper" you will see another folder called "RunApp".
+In order to run the program, just run the "ExamHelper.jar" file inside of "RunApp".
+If you wish to move or copy the program, just copy the whole folder "RunApp", as it contains
+the necessary libraries for ExamHelper to work.
+
+

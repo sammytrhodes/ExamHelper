@@ -13,7 +13,8 @@ import javafx.fxml.Initializable;
 
 
 /**
- *
+ * FXML Controller class
+ * 
  * @author David
  */
 public class ExamOrQuesController implements Initializable,Controller {

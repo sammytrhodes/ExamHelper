@@ -1,0 +1,74 @@
+
+
+These are script tests to run for the interfaces to ensure they function as expected:
+
+TEST HOME SCREEN
+01) Run the ExamHelper project
+02) Confirm that a window opens with text, “Please Choose to Create an Exam or Input 
+    a Question,” and buttons corresponding to these two choices.
+03) Click button labeled “Input Question.”
+04) Confirm that a new window opens with  text “Please Choose to Input a Single Question 
+    or Input a Question File,” two buttons corresponding to these choices, and a 
+    “Back button in the top left.
+05) Click the “Back” button and confirm that the original window opens again.
+06) Click button labeled “Create Exam.”
+07) Confirm that a new window opens with a “Back” button in the top left, a text box 
+    labeled “Number of Questions, a drop down menu labeled “Choose a Subject for the 
+    Exam.”
+08) Click the “Back” button and confirm that the original window opens again.
+
+TEST QUESTION CHOICE SCREEN
+01) Run the project if not running already.
+01) From the home screen click the “Input Question” button.
+02) When the new window opens, click button labeled “Input Question.”
+03) Confirm that a new window opens with a Combo Box labeled, “Choose a subject, or 
+    ender a new subject:” along with a text box labeled, “Enter Your Question Here…” 
+    A “Done” button is at the bottom and a “Back” button in the top left.
+04) Click the “Back” button and confirm that the previous window opens again.
+05) Click the button labeled "Input File."
+06) Confirm that a new window opens with an empty text box, a button labeled, 
+    "Choose File," a button labeled "Input Questions," and a "Back" button in the 
+    top left.
+07) Click the "Back" button and confirm that the previous screeen opens again.
+08) Return to the home screen or exit the system.
+
+TEST INPUT QUESTION SCREEN
+01) Run Project if not running already.
+02) From the home screen click the "Input Question" button.
+06) Type any subject into the Combo Box that does not already exist in the drop down.
+12) Enter a corresponding question in the text box and click the “Done” button when 
+    finished.
+13) Confirm that the current window closes and the home screen opens again.
+
+TEST INPUT FILE SCREEN
+01) Run the project if not running already.
+02) From the home screen, navigate to the INPUT FILE screen by clicking "Input Question" 
+    button on the home screen and then "Input File" button on the QUESTION CHOICE screen.
+03) Click the "Choose File" button.
+04) Confirm that Finder (Mac) or Explorer (Windows) opens.
+05) Choose a file and confirm that its address appears in the text box.
+06) Navigate back to the home screen or exit the system.
+
+TEST CREATE EXAM SCREEN
+01) Run Project if not running already.
+02) From the home screen, click the “Create Exam” button. 
+03) Confirm that the subject you created exists in the drop down menu, and select it.
+04) Type “2” in the Questions text box.
+05) Click “Create Exam.”
+06) Confirm that a new window opens displaying this message, “Error! You either entered 
+    an invalid number, or you entered a number greater than the number of questions 
+    available. Please enter a new value.”
+07) Click the "Back" button and confirm the previous window re-opens, conserving the 
+    subject and number of questions you entered before.
+08) Now change the number of questions from “2” to “K” and click “Create Exam.”
+09) Confirm that the same message appears. Click “Back.”
+10) Change number of questions to “-5” and click “Create Exam.”
+11) Confirm that the same message appears. Click “Back.”
+12) Change the number of questions to “1” and click “Create Exam.”
+13) Confirm that a text file opens named “yyyy_mm_dd-*YOUR SUBJECT*-exam.txt”
+14) Confirm that the file specifies the subject, has a name and date slot, and displays
+    your question.
+15) Close the text file.
+16) Navigate back to the home screen or close the system.
+
+

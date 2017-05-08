@@ -74,7 +74,7 @@ public class TextInputController implements Initializable, Controller {
      * will load the file and display the name in the box so the user
      * knows it's loaded
      * @param e clicked the button
-     * @exception couldn't read file
+     * @throws FileNotFoundException
      */
     @FXML
     private void loadFile(ActionEvent e) throws FileNotFoundException{
